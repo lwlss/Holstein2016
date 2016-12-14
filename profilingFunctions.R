@@ -108,20 +108,26 @@ plotSimilarFit=function(targ,prof,nearest=c(),farthest=c(),ylim=c()){
 	delta=0.5
 	bcol="gray92"
 	pcol=rgb(1,0.65,0.65)
-	plot(NULL,xlab="",ylab="Fitness",main=mlab,ylim=ylim,cex.lab=2,xlim=c(1-delta,nExp+delta),cex.main=2,xaxt="n",yaxt="n", mgp=c(5, 2, 0))
+	#plot(NULL,xlab="",ylab="Fitness",main=mlab,ylim=ylim,cex.lab=2,xlim=c(1-delta,nExp+delta),cex.main=2,xaxt="n",yaxt="n", mgp=c(5, 2, 0))
 	maxvals=apply(profdat,2,max,na.rm=TRUE); minvals=apply(profdat,2,min,na.rm=TRUE)
-	polygon(c(1-delta,1:nExp,nExp+delta,nExp+delta,rev(1:nExp),1-delta),c(maxvals[1],maxvals,maxvals[length(maxvals)],minvals[length(minvals)],rev(minvals),minvals[1]),col=bcol,border=bcol)
+	#polygon(c(1-delta,1:nExp,nExp+delta,nExp+delta,rev(1:nExp),1-delta),c(maxvals[1],maxvals,maxvals[length(maxvals)],minvals[length(minvals)],rev(minvals),minvals[1]),col=bcol,border=bcol)
+	#boxplot(profdat,col="lightblue",notch=FALSE,outline=FALSE,border="black",las=2,range=1.5,cex.axis=2,add=TRUE,lwd=1.5,pars = list(boxwex = 0.45, staplewex = 0.5, outwex = 0.5))
+
+	stripchart(profdat,vertical=TRUE,method="jitter",jitter=0.2,pch=16,col=rgb(0,0,0,0.15),cex=0.4,pars = list(boxwex = 0.45, staplewex = 0.5, outwex = 0.5),las=2,main=mlab,ylim=ylim,cex.lab=2,xlim=c(1-delta,nExp+delta),cex.main=2,cex.axis=2,ylab="Fitness")
 	
-	boxplot(profdat,col="lightblue",notch=FALSE,outline=FALSE,border="black",las=2,range=1.5,cex.axis=2,add=TRUE,lwd=1.5,pars = list(boxwex = 0.45, staplewex = 0.5, outwex = 0.5))
 	#points(maxvals,pch="-",col="darkgrey",cex=3)
 	#points(minvals,pch="-",col="darkgrey",cex=3)
 	
-	if(length(nearest)>0) for(i in 1:dim(nearprof)[1]) points(1:nExp,nearprof[i,],type="b",col="pink",lwd=2)
+	pnk="pink"
+	pnk=rgb(1.0,0.5,0.5)
+	pnk=rgb(0.1176471,0.5647059,1.0000000,0.5)
+	
+	if(length(nearest)>0) for(i in 1:dim(nearprof)[1]) points(1:nExp,nearprof[i,],type="b",col=pnk,lwd=2)
 	if(length(farthest)>0) for(i in 1:dim(farprof)[1]) points(1:nExp,farprof[i,],type="b",col="grey",lwd=2)
 	for(i in seq_along(targ)) points(1:nExp,prof[targ[i],1:nExp],col=cols[i],type="b",lwd=3)
 	if(dim(nearprof)[1]>0){
-		text(nExp,nearprof[,nExp],tolower(rownames(nearprof)),cex=cexlabs,pos=4,col="pink")
-		text(1,nearprof[,1],tolower(rownames(nearprof)),cex=cexlabs,pos=2,col="pink")
+		text(nExp,nearprof[,nExp],tolower(rownames(nearprof)),cex=cexlabs,pos=4,col=pnk)
+		text(1,nearprof[,1],tolower(rownames(nearprof)),cex=cexlabs,pos=2,col=pnk)
 	}
 	if(dim(farprof)[1]>0){
 		text(nExp,farprof[,nExp],tolower(rownames(farprof)),cex=cexlabs,pos=4,col="grey")
