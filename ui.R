@@ -2,7 +2,7 @@ library(shiny)
 
 shinyUI(fluidPage(title="Profilyzer",
 	titlePanel(h1("Fitness Profiling: Responses to defective telomeres in budding yeast")),
-	HTML('<p>To explore evidence for genetic interaction in detail, use our fitness plot visualisation tool: <a href="http://bsu-srv.ncl.ac.uk/dixy">DIXY</a></p>'),
+	HTML('<p>To explore evidence for genetic interaction in detail, use our fitness plot visualisation tool: <a href="http://bsu-srv.ncl.ac.uk/dixy-telo">DIXY</a></p>'),
 	p("Press 'Draw Plot' button after changing input selection in grey box.  Plots and tables are updated in response to all other input in real time."),
 	
 	sidebarLayout(
