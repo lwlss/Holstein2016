@@ -126,7 +126,7 @@ plotSimilarFit=function(targ,prof,nearest=c(),farthest=c(),ylim=c(),legendval=NU
 
 
 format=list(
-NARROW=list(width=4.75,height=10,cexlabs=1.6,fname="teloplots%02d.pdf",pfname="WideteloplotsLEGEND%02d.pdf",pcexlabs=0.8),
+NARROW=list(width=4.75,height=10,cexlabs=1.6,fname="teloplots%02d.pdf",pfname="teloplotsLEGEND%02d.pdf",pcexlabs=0.8),
 WIDE=list(width=10,height=7,cexlabs=1.6,fname="Wideteloplots%02d.pdf",pfname="WideteloplotsLEGEND%02d.pdf",pcexlabs=0.8)
 )
 
@@ -146,7 +146,7 @@ CHK=list(genes=c("DDC1","RAD24","RAD17"),cols="darkgreen",pchs=pch,ltys=lty,lwds
 NMD=list(genes=c("NAM7","NMD2","UPF3"),cols="dodgerblue",pchs=pch,ltys=lty,lwds=lwd,cexs=cex,types=type),
 KU=list(genes=c("YKU70","YKU80"),cols="black",pchs=pch,ltys=lty,lwds=lwd,cexs=cex,types=type),
 MRX=list(genes=c("MRE11","XRS2","RAD50"),cols="red",pchs=pch,ltys=lty,lwds=lwd,cexs=cex,types=type),
-TELO=list(genes=c("RAD9","CHK1","TEL1"),cols=c("purple","orange","darkcyan"),pchs=pch,ltys=lty,lwds=lwd,cexs=cex,types=type)
+TELO=list(genes=c("RAD9","CHK1","TEL1","EXO1"),cols=c("purple","orange","darkcyan","magenta"),pchs=pch,ltys=lty,lwds=lwd,cexs=cex,types=type)
 )
 
 
@@ -167,16 +167,17 @@ dev.off()
 cairo_pdf(file=format[[f]]$pfname,height=format[[f]]$height,width=format[[f]]$width,pointsize=6)
 
 pch=1:9
+pch[pch==3]=0
 type="p"
-cex=2.0
-targ_all=list(
+cex=4.0
+targ=list(
 CHK=list(genes=c("DDC1","RAD24","RAD17"),cols="darkgreen",pchs=pch,ltys=lty,lwds=lwd,cexs=cex,types=type),
 NMD=list(genes=c("NAM7","NMD2","UPF3"),cols="dodgerblue",pchs=pch,ltys=lty,lwds=lwd,cexs=cex,types=type),
 KU=list(genes=c("YKU70","YKU80"),cols="black",pchs=pch,ltys=lty,lwds=lwd,cexs=cex,types=type),
 MRX=list(genes=c("MRE11","XRS2","RAD50"),cols="red",pchs=pch,ltys=lty,lwds=lwd,cexs=cex,types=type),
-TELO=list(genes=c("RAD9","CHK1","TEL1"),cols=c("purple","orange","darkcyan"),pchs=pch,ltys=lty,lwds=lwd,cexs=cex,types=type)
+TELO=list(genes=c("RAD9","CHK1","TEL1","EXO1"),cols=c("purple","orange","darkcyan","magenta"),pchs=pch,ltys=lty,lwds=lwd,cexs=cex,types=type)
 )
-plotSimilarFit(targ_all,prof,cexlabs=format[[f]]$pcexlabs,showgenes=FALSE,legendval="topright")
+plotSimilarFit(targ,prof,cexlabs=format[[f]]$pcexlabs,showgenes=FALSE,legendval="topright")
 dev.off()
 
 }
