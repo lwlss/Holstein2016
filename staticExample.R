@@ -56,7 +56,7 @@ plotSimilarFit=function(targ,prof,nearest=c(),farthest=c(),ylim=c(),legendval=NU
 	#polygon(c(1-delta,1:nExp,nExp+delta,nExp+delta,rev(1:nExp),1-delta),c(maxvals[1],maxvals,maxvals[length(maxvals)],minvals[length(minvals)],rev(minvals),minvals[1]),col=bcol,border=bcol)
 	#boxplot(profdat,col="lightblue",notch=FALSE,outline=FALSE,border="black",las=2,range=1.5,cex.axis=2,add=TRUE,lwd=1.5,pars = list(boxwex = 0.45, staplewex = 0.5, outwex = 0.5))
 
-	stripchart(profdat,vertical=TRUE,method="jitter",jitter=0.35,pch=16,col=rgb(0,0,0,0.15),cex=0.4,las=2,main=mlab,ylim=ylim,cex.lab=2,xlim=c(1-delta,nExp+delta),cex.main=2,cex.axis=2,ylab="Fitness")
+	stripchart(profdat,vertical=TRUE,method="jitter",jitter=0.25,pch=16,col=rgb(0,0,0,0.1),cex=0.75,las=2,main=mlab,ylim=ylim,cex.lab=2,xlim=c(1-delta,nExp+delta),cex.main=2,cex.axis=2,ylab="Fitness")
 	
 	#points(maxvals,pch="-",col="darkgrey",cex=3)
 	#points(minvals,pch="-",col="darkgrey",cex=3)
@@ -71,7 +71,7 @@ plotSimilarFit=function(targ,prof,nearest=c(),farthest=c(),ylim=c(),legendval=NU
 		for(i in seq_along(targ[[trg]]$genes)) {
 			typeorig=targ[[trg]]$types[(i-1)%%length(targ[[trg]]$types)+1]
 			types=typeorig
-			if(types=="p") {xvals=1:nExp+runif(nExp,0,0.05)}else{xvals=1:nExp}
+			if(types=="p") {xvals=1:nExp+runif(nExp,-0.2,0.2)}else{xvals=1:nExp}
 			types[types=="b"]="p"
 			types[types=="c"]="n"
 			
@@ -124,59 +124,59 @@ plotSimilarFit=function(targ,prof,nearest=c(),farthest=c(),ylim=c(),legendval=NU
 	par(op)
 }
 
+
+format=list(
+NARROW=list(width=4.75,height=10,cexlabs=1.6,fname="teloplots%02d.pdf",pfname="WideteloplotsLEGEND%02d.pdf",pcexlabs=0.8),
+WIDE=list(width=10,height=7,cexlabs=1.6,fname="Wideteloplots%02d.pdf",pfname="WideteloplotsLEGEND%02d.pdf",pcexlabs=0.8)
+)
+
+for(f in names(format)){
+
 profALL=vals$prof
 colnames(profALL)[1:length(prettyNames)]=prettyNames
 prof=profALL[,c(1,5,8,11,12,13)]
 lwd=1.25
-cex=1.0
+cex=2.0
 type="b"
 lty=1
 pch=1
 
-
-cairo_pdf(file="teloplots%02d.pdf",height=10,width=4.75,pointsize=6)
-targ=list(
+targ_all=list(
 CHK=list(genes=c("DDC1","RAD24","RAD17"),cols="darkgreen",pchs=pch,ltys=lty,lwds=lwd,cexs=cex,types=type),
 NMD=list(genes=c("NAM7","NMD2","UPF3"),cols="dodgerblue",pchs=pch,ltys=lty,lwds=lwd,cexs=cex,types=type),
 KU=list(genes=c("YKU70","YKU80"),cols="black",pchs=pch,ltys=lty,lwds=lwd,cexs=cex,types=type),
 MRX=list(genes=c("MRE11","XRS2","RAD50"),cols="red",pchs=pch,ltys=lty,lwds=lwd,cexs=cex,types=type),
-TELO=list(genes=c("EST1","EST3","RIF1","RIF2","RAD9","CHK1","TEL1","EXO1","RRM3"),cols="purple",pchs=pch,ltys=lty,lwds=lwd,cexs=cex,types=type)
+TELO=list(genes=c("RAD9","CHK1","TEL1"),cols=c("purple","orange","darkcyan"),pchs=pch,ltys=lty,lwds=lwd,cexs=cex,types=type)
 )
-plotSimilarFit(targ,prof,cexlabs=1.25)
-targ=list(
-CHK=list(genes=c("DDC1","RAD24","RAD17"),cols="darkgreen",pchs=pch,ltys=lty,lwds=lwd,cexs=cex,types=type)
-)
-plotSimilarFit(targ,prof,cexlabs=1.6,mainadd="CHK")
-targ=list(
-NMD=list(genes=c("NAM7","NMD2","UPF3"),cols="dodgerblue",pchs=pch,ltys=lty,lwds=lwd,cexs=cex,types=type)
-)
-plotSimilarFit(targ,prof,cexlabs=1.6,mainadd="NMD")
-targ=list(
-KU=list(genes=c("YKU70","YKU80"),cols="black",pchs=pch,ltys=lty,lwds=lwd,cexs=cex,types=type)
-)
-plotSimilarFit(targ,prof,cexlabs=1.6,mainadd="KU")
-targ=list(
-MRX=list(genes=c("MRE11","XRS2","RAD50"),cols="red",pchs=pch,ltys=lty,lwds=lwd,cexs=cex,types=type)
-)
-plotSimilarFit(targ,prof,cexlabs=1.6,mainadd="MRX")
-targ=list(
-TELO=list(genes=c("EST1","EST3","RIF1","RIF2","RAD9","CHK1","TEL1","EXO1","RRM3"),cols="purple",pchs=pch,ltys=lty,lwds=lwd,cexs=cex,types=type)
-)
-plotSimilarFit(targ,prof,cexlabs=1.6,mainadd="TELO")
+
+
+cairo_pdf(file=format[[f]]$fname,height=format[[f]]$height,width=format[[f]]$width,pointsize=6)
+plotSimilarFit(targ_all,prof,cexlabs=format[[f]]$cexlabs)
+targ=list(CHK=targ_all$CHK)
+plotSimilarFit(targ,prof,cexlabs=format[[f]]$cexlabs,mainadd="CHK")
+targ=list(NMD=targ_all$NMD)
+plotSimilarFit(targ,prof,cexlabs=format[[f]]$cexlabs,mainadd="NMD")
+targ=list(KU=targ_all$KU)
+plotSimilarFit(targ,prof,cexlabs=format[[f]]$cexlabs,mainadd="KU")
+targ=list(MRX=targ_all$MRX)
+plotSimilarFit(targ,prof,cexlabs=format[[f]]$cexlabs,mainadd="MRX")
+targ=list(TELO=targ_all$TELO)
+plotSimilarFit(targ,prof,cexlabs=format[[f]]$cexlabs,mainadd="TELO")
 dev.off()
 
-cairo_pdf(file="teloplotsLEGEND%02d.pdf",height=10,width=4.75,pointsize=6)
+cairo_pdf(file=format[[f]]$pfname,height=format[[f]]$height,width=format[[f]]$width,pointsize=6)
 
-pts=1:9
+pch=1:9
 type="p"
-cex=2
-targ=list(
-CHK=list(genes=c("DDC1","RAD24","RAD17"),cols="darkgreen",pchs=pts,ltys=lty,lwds=lwd,cexs=cex,types=type),
-NMD=list(genes=c("NAM7","NMD2","UPF3"),cols="dodgerblue",pchs=pts,ltys=lty,lwds=lwd,cexs=cex,types=type),
-KU=list(genes=c("YKU70","YKU80"),cols="black",pchs=pts,ltys=lty,lwds=lwd,cexs=cex,types=type),
-MRX=list(genes=c("MRE11","XRS2","RAD50"),cols="red",pchs=pts,ltys=lty,lwds=lwd,cexs=cex,types=type),
-TELO=list(genes=c("EST1","EST3","RIF1","RIF2","RAD9","CHK1","TEL1","EXO1","RRM3"),cols="purple",pchs=pts,ltys=lty,lwds=lwd,cexs=cex,types=type)
+cex=2.0
+targ_all=list(
+CHK=list(genes=c("DDC1","RAD24","RAD17"),cols="darkgreen",pchs=pch,ltys=lty,lwds=lwd,cexs=cex,types=type),
+NMD=list(genes=c("NAM7","NMD2","UPF3"),cols="dodgerblue",pchs=pch,ltys=lty,lwds=lwd,cexs=cex,types=type),
+KU=list(genes=c("YKU70","YKU80"),cols="black",pchs=pch,ltys=lty,lwds=lwd,cexs=cex,types=type),
+MRX=list(genes=c("MRE11","XRS2","RAD50"),cols="red",pchs=pch,ltys=lty,lwds=lwd,cexs=cex,types=type),
+TELO=list(genes=c("RAD9","CHK1","TEL1"),cols=c("purple","orange","darkcyan"),pchs=pch,ltys=lty,lwds=lwd,cexs=cex,types=type)
 )
-
-plotSimilarFit(targ,prof,cexlabs=0.75,showgenes=FALSE,legendval="topright")
+plotSimilarFit(targ_all,prof,cexlabs=format[[f]]$pcexlabs,showgenes=FALSE,legendval="topright")
 dev.off()
+
+}
