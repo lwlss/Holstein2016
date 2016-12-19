@@ -150,7 +150,7 @@ TELO=list(genes=c("RAD9","CHK1","TEL1","EXO1"),cols=c("purple","orange","darkcya
 )
 
 
-cairo_pdf(file=format[[f]]$fname,height=format[[f]]$height,width=format[[f]]$width,pointsize=6)
+pdf(file=format[[f]]$fname,height=format[[f]]$height,width=format[[f]]$width,pointsize=6, family="ArialMT",useDingbats=FALSE,colormodel="cmyk")
 plotSimilarFit(targ_all,prof,cexlabs=format[[f]]$cexlabs)
 targ=list(CHK=targ_all$CHK)
 plotSimilarFit(targ,prof,cexlabs=format[[f]]$cexlabs,mainadd="CHK")
@@ -164,7 +164,7 @@ targ=list(TELO=targ_all$TELO)
 plotSimilarFit(targ,prof,cexlabs=format[[f]]$cexlabs,mainadd="TELO")
 dev.off()
 
-cairo_pdf(file=format[[f]]$pfname,height=format[[f]]$height,width=format[[f]]$width,pointsize=6)
+pdf(file=format[[f]]$pfname,height=format[[f]]$height,width=format[[f]]$width,pointsize=6, family="ArialMT",useDingbats=FALSE,colormodel="cmyk")
 
 pch=1:9
 pch[pch==3]=0
