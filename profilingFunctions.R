@@ -113,7 +113,7 @@ plotSimilarFit=function(targ,prof,nearest=c(),farthest=c(),ylim=c()){
 	#polygon(c(1-delta,1:nExp,nExp+delta,nExp+delta,rev(1:nExp),1-delta),c(maxvals[1],maxvals,maxvals[length(maxvals)],minvals[length(minvals)],rev(minvals),minvals[1]),col=bcol,border=bcol)
 	#boxplot(profdat,col="lightblue",notch=FALSE,outline=FALSE,border="black",las=2,range=1.5,cex.axis=2,add=TRUE,lwd=1.5,pars = list(boxwex = 0.45, staplewex = 0.5, outwex = 0.5))
 
-	stripchart(profdat,vertical=TRUE,method="jitter",jitter=0.2,pch=16,col=rgb(0,0,0,0.15),cex=0.4,pars = list(boxwex = 0.45, staplewex = 0.5, outwex = 0.5),las=2,main=mlab,ylim=ylim,cex.lab=2,xlim=c(1-delta,nExp+delta),cex.main=2,cex.axis=2,ylab="Fitness")
+	stripchart(profdat,vertical=TRUE,method="jitter",jitter=0.3,pch=16,col=rgb(0,0,0,0.15),cex=0.4,pars = list(boxwex = 0.45, staplewex = 0.5, outwex = 0.5),las=2,main=mlab,ylim=ylim,cex.lab=2,xlim=c(1-delta,nExp+delta),cex.main=2,cex.axis=2,ylab="Fitness")
 	
 	#points(maxvals,pch="-",col="darkgrey",cex=3)
 	#points(minvals,pch="-",col="darkgrey",cex=3)

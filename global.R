@@ -1,4 +1,20 @@
 source("trimComplexes.R",local=TRUE)
+
+# Give columns pretty names
+prettyNames=c(
+"ura3\u0394 27\u00B0C",
+"lyp1\u0394 30\u00B0C",
+"lyp1\u0394 33\u00B0C",
+"yku70\u0394 37.5\u00B0C",
+"cdc13-1 27\u00B0C",
+"stn1-13 33\u00B0C",
+"rfa3-313 30\u00B0C",
+"cdc13-1 exo1\u0394 30\u00B0C",
+"cdc13-1 UD",
+"cdc13-1 rad9\u0394 UD",
+"cdc13-1 rad9\u0394 27\u00B0C"
+)
+
 fc=read.delim("FunctionalComplexesTrimmed.txt",sep="\t",header=TRUE,stringsAsFactors=FALSE)
 fc=rbind(c("None","None","None",""),fc)
 choiceList=as.list(1:length(fc$Notes))
