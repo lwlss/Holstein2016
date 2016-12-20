@@ -3,6 +3,7 @@ source("profilingFunctions.R",local=TRUE)
 # List of filenames to open
 fnames_MDRMDP=list(
 ura3_27="QFA0141_FitnessReport_DAL_ura3_27_SDM_rhk_CTGN_MDRMDP.txt",
+ura3_UD="QFA0141_FitnessReport_DAL_ura3_UD_X3_SDM_rhk_CTGN_MDRMDP.txt",
 lyp1_30="QFA0132_FitnessReport_DAL_lyp1_HLN_30_SDM_rhlk_CTGNH_MDRMDP.txt",
 lyp1_33="QFA0132_FitnessReport_DAL_lyp1_HLN_33_SDM_rhlk_CTGNH_MDRMDP.txt",
 yku70_375="QFA0139_FitnessReport_DAL_Yku70_37_5_SDM_rhk_CTGN_MDRMDP.txt",
@@ -17,6 +18,7 @@ cdc13_rad9_27="QFA0142_FitnessReport_APB_cdc13-1_rad9D_27_SDM_rhlk_CTGNH_MDRMDP.
 
 fnames_nAUC=list(
 ura3_27="QFA0141_FitnessReport_DAL_ura3_27_SDM_rhk_CTGN_nAUC.txt",
+ura3_UD="QFA0141_FitnessReport_DAL_ura3_UD_X3_SDM_rhk_CTGN_nAUC.txt",
 lyp1_30="QFA0132_FitnessReport_DAL_lyp1_HLN_30_SDM_rhlk_CTGNH_nAUC.txt",
 lyp1_33="QFA0132_FitnessReport_DAL_lyp1_HLN_33_SDM_rhlk_CTGNH_nAUC.txt",
 yku70_375="QFA0139_FitnessReport_DAL_Yku70_37_5_SDM_rhk_CTGN_nAUC.txt",

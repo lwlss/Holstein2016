@@ -3,6 +3,7 @@ source("trimComplexes.R",local=TRUE)
 # Give columns pretty names
 prettyNames=c(
 "ura3\u0394 27\u00B0C",
+"ura3\u0394 UD",
 "lyp1\u0394 30\u00B0C",
 "lyp1\u0394 33\u00B0C",
 "yku70\u0394 37.5\u00B0C",
