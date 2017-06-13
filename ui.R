@@ -2,7 +2,7 @@ library(shiny)
 
 shinyUI(fluidPage(title="Profilyzer",
 	titlePanel(h1("Fitness Profiling: Responses to defective telomeres in budding yeast")),
-	HTML('<p>To explore evidence for genetic interaction in detail, use our fitness plot visualisation tool: <a href="http://bsu-srv.ncl.ac.uk/dixy-telo">DIXY</a></p>'),
+	HTML('<p>This webpage is for exploring fitness profile data from high-throughput screens to understand DNA damage response in yeast, as presented by <a href="https://doi.org/10.1534/g3.117.042283">Holstein et al. (2017)</a>.</p><p>To explore evidence for genetic interaction in detail, use our fitness plot visualisation tool: <a href="http://bsu-srv.ncl.ac.uk/dixy-telo">DIXY</a></p>'),
 	p("Press 'Draw Plot' button after changing input selection in grey box.  Plots and tables are updated in response to all other input in real time."),
 	
 	sidebarLayout(
@@ -69,6 +69,6 @@ shinyUI(fluidPage(title="Profilyzer",
 	h6("Difference distribution: plot of the magnitude of profile difference from target against difference rank.  Examining this plot helps us to decide whether library deletions identified as least different to target are significant outliers or simply part of the average behaviour of deletions across all screens.  The flat part of this curve represents the average profile difference from the target deletion. Deletions with differences from the target around this value have essentially indistinguishable profiles.  A flat curve immediately after the origin suggests that the target profile is not very different from that of many other deletions (e.g. when target is set to his3): ranking by difference will not provide much information and the ranked order of nearest deletions is not likely to be informative.  On the other hand, if the curve has a steep slope near the origin, then deletions on the steep section have profiles that are unusually similar to the target and should be candidates for further investigation.")
 	)	
    ),
-   HTML('<p>Data, source code & documentation for this instance of profilyzer are hosted on <a href="https://github.com/lwlss/profilyzer">GitHub</a></p>')
+   HTML('<p>Data, source code & documentation for this instance of profilyzer are hosted on <a href="https://github.com/lwlss/Holstein2016/">GitHub</a></p>')
    )
 )))
