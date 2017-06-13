@@ -10,7 +10,7 @@ This directory contains a [Shiny](https://shiny.rstudio.com/) app for interactiv
 
 Above is a static version of a plot that can be produced by profilyzer.
 
-To see profilyzer in action, a live instance of this particular dataset can be found at [this page](http://research.ncl.ac.uk/qfa/Holstein2016).  Alternatively, you can download the code & data from this repository and run a local session.
+To see profilyzer in action, a live instance of this particular dataset can be found at [this page](http://research.ncl.ac.uk/qfa/Holstein2017).  Alternatively, you can download the code & data from this repository and run a local session.
 
 To run profilyzer in a local session: 
 * Check out this repository
