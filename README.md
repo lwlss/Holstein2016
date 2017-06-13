@@ -1,4 +1,6 @@
-# Data & source code Holstein et al. 2016
+# Data & source code [Holstein et al. (2017)](https://doi.org/10.1534/g3.117.042283)
+
+See the [manuscript](https://doi.org/10.1534/g3.117.042283) for more information.
 
 ## Profilyzer
 
