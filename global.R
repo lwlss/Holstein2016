@@ -47,6 +47,11 @@ vals=list()
 input=list()
 input$dType="mahalanobis"
 vals$prof=makeProfiles(fits,scrNms,"MeanFit")
+uglyNames=colnames(vals$prof)
+beautifulNames=c(prettyNames,"SD","ORF")
+names(beautifulNames)=uglyNames
+
+
 vals$nExp=dim(vals$prof)[2]-2
 vals$sims=similarities(vals$prof,"mahalanobis")
 gdict=rownames(vals$prof)

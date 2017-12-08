@@ -76,7 +76,11 @@ shinyServer(function(input, output) {
 				dT=input$dType
 			}
 			vals$sims=similarities(vals$prof,dT)
-			colnames(vals$prof)[as.numeric(input$checkGroup)]=prettyNames[as.numeric(input$checkGroup)]
+			print(as.numeric(input$checkGroup))
+			print(prettyNames[as.numeric(input$checkGroup)])
+			print(colnames(vals$prof))
+			#colnames(vals$prof)[as.numeric(input$checkGroup)]=prettyNames[as.numeric(input$checkGroup)]
+			colnames(vals$prof) = beautifulNames[colnames(vals$prof)]
 			vals$simtarg=c()
 			return(vals)
 		})
