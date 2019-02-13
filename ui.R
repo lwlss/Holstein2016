@@ -52,7 +52,7 @@ shinyUI(fluidPage(title="Profilyzer",
 	  
    fluidRow(
     plotOutput("profiles", height="1000px", width = "100%"),
-	h6("Stripchart comparing average fitness distributions across multiple QFA screens, overlaid with average fitness profiles for individual library deletion strains.  Each grey point represents the fitness of one deletion strain in the QFA screen specified by x-axis label.  Dark bands in a strip correspond to fitness values which appear particularly often in that screen.")
+	h6("Stripchart comparing average fitness distributions across multiple QFA screens, overlaid with average fitness profiles for individual library deletion strains.  Each grey point represents the average fitness of one deletion strain in the QFA screen specified by x-axis label.  Dark bands in a strip correspond to fitness values which appear particularly often in that screen.")
 	),
 	downloadButton('downloadPlot', 'Download Plot'),
 	fluidRow(
