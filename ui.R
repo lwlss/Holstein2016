@@ -52,7 +52,7 @@ shinyUI(fluidPage(title="Profilyzer",
 	  
    fluidRow(
     plotOutput("profiles", height="1000px", width = "100%"),
-	h6("Boxplot comparing average fitness distributions across multiple QFA screens, overlaid with average fitness profiles for individual library deletion strains.  Horizontal black bar is median fitness, edges of blue box correspond to the 1st & 3rd quartiles of each average fitness distribution.  Whiskers extend to most extreme average fitness which is no more than 1.5 times the length of the box away from the box.  Grey background corresponds to the range of average fitnesses in each QFA screen.")
+	h6("Stripchart comparing average fitness distributions across multiple QFA screens, overlaid with average fitness profiles for individual library deletion strains.  Each grey point represents the fitness of one deletion strain in the QFA screen specified by x-axis label.  Dark bands in a strip correspond to fitness values which appear particularly often in that screen.")
 	),
 	downloadButton('downloadPlot', 'Download Plot'),
 	fluidRow(
